@@ -1,1 +1,1 @@
-# go-microservice
+# go-article-manager
