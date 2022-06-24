@@ -8,6 +8,6 @@ func main() {
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
 	r.GET("/", showIndexPage)
-	r.GET("/article/view/:article_id", getArticle())
+	r.GET("/article/view/:article_id", getArticle)
 	r.Run()
 }
