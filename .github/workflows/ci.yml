@@ -1,4 +1,4 @@
-name: go-article-manager
+name: ci
 
 on:
   push:
