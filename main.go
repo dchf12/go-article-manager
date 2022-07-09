@@ -9,5 +9,5 @@ func main() {
 	r.LoadHTMLGlob("templates/*")
 	r.GET("/", showIndexPage)
 	r.GET("/article/view/:article_id", getArticle)
-	r.Run()
+	r.Run(":8080")
 }
