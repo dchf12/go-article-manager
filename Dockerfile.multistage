@@ -22,6 +22,7 @@ FROM gcr.io/distroless/base-debian10
 
 WORKDIR /
 
+COPY --from=build /app/templates/* /templates/
 COPY --from=build /go-article-manager /go-article-manager
 
 EXPOSE 8080
