@@ -1,0 +1,31 @@
+# syntax=docker/dockerfile:1
+
+##
+## Build
+##
+FROM golang:1.18-bullseye AS build
+
+WORKDIR /app
+
+COPY go.mod ./
+COPY go.sum ./
+RUN go mod download
+
+COPY ./ ./
+
+RUN go build -o /go-article-manager
+
+##
+## Deploy
+##
+FROM gcr.io/distroless/base-debian10
+
+WORKDIR /
+
+COPY --from=build /go-article-manager /go-article-manager
+
+EXPOSE 8080
+
+USER nonroot:nonroot
+
+ENTRYPOINT ["/go-article-manager"]
